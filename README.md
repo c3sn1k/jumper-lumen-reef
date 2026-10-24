@@ -9,7 +9,7 @@ Level 3**. The final policy clears the staircase using only proprioception - no 
 scanner, no height map, no external state estimator - so the same exported network can
 run in the official simulator and on the deployment controller.
 
-![Lumen Temple](design/lumen-temple.png)
+![Lumen Temple - light look used in the capture](design/lumen-temple-light.png)
 
 ## Results
 
@@ -33,9 +33,9 @@ The curriculum panel is the important one: the command curriculum steps through 
 error drops below the promotion threshold. The policy then keeps training at the full
 command range for the remaining ~1,200 iterations.
 
-A short simulator clip is included at
-[`media/stairs_climb_success.mp4`](media/stairs_climb_success.mp4), with a longer
-centered run at [`media/stairs_centered_25s.mp4`](media/stairs_centered_25s.mp4).
+The final capture uses the **light** Lumen Temple look; the authored **night** look is
+included as a second preview below. The earlier clips in the working folder were early
+checkpoints and are not part of this repository.
 
 ## The task
 
@@ -81,7 +81,8 @@ lumen-reef-challenge/
 |   |-- lumen-temple.map        built Lumen Temple map (skin included)
 |   |-- lumen-reef.skin         bioluminescent Lumen Reef shell
 |   |-- lumen-temple.scene.json source scene
-|   |-- lumen-temple.png        hero render
+|   |-- lumen-temple-light.png  light look used in the capture
+|   |-- lumen-temple-night.png  authored night look
 |   |-- lumen-reef-skin.png     shell preview
 |   `-- design-brief.md         design intent and palette
 |-- training/
@@ -92,9 +93,6 @@ lumen-reef-challenge/
 |   |-- notebooks/jumper_colab.ipynb
 |   |-- tools/colab.py
 |   `-- COLAB_STAIRS.md         exact Colab and export commands
-`-- media/
-    |-- stairs_climb_success.mp4
-    `-- stairs_centered_25s.mp4
 ```
 
 The training directory mirrors the upstream [`KingKongRobotics/jumper`](https://github.com/KingKongRobotics/jumper)
@@ -211,6 +209,13 @@ loading the shell on another map.
 - **Lumen Temple** - ten-step basalt staircase, altar platform at 0.44 m, floating gold
   treasure, aqua fog and cyan bioluminescence.
 
+The map is authored with a **night** look. The final capture used the **light** look of
+the same map, which is how the web simulator presents it. Both previews are included:
+
+| Light look - used in the capture | Authored night look |
+|---|---|
+| ![Lumen Temple light](design/lumen-temple-light.png) | ![Lumen Temple night](design/lumen-temple-night.png) |
+
 ![Lumen Reef shell](design/lumen-reef-skin.png)
 
 The design workflow lives in the upstream
@@ -223,7 +228,7 @@ workflow's content library, or load the map directly in the official simulator.
 | Artifact | Built from | Notes |
 |---|---|---|
 | `apps/stairs_1000.app` | `checkpoints/model_1000.pt` | Iteration 1,000; Curriculum Level 3 just reached |
-| `apps/stairs_final.app` | `checkpoints/model_2199.pt` | Final checkpoint of the 2,200-iteration run |
+| `apps/stairs_final.app` | `checkpoints/model_2199.pt` / `model_2200.pt` | Final checkpoint of the 2,200-iteration run |
 | `checkpoints/model_1000.pt` | - | 2,200-iteration run, iteration 1,000 |
 | `checkpoints/model_2199.pt` | - | 2,200-iteration run, final saved iteration |
 | `checkpoints/model_2200.pt` | - | Byte-identical alias of `model_2199.pt` |

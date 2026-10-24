@@ -5,11 +5,23 @@
 | `lumen-temple.map` | Built Lumen Temple map with the Lumen Reef skin embedded |
 | `lumen-temple.scene.json` | Source scene for the staircase, altar and treasure |
 | `lumen-reef.skin` | Standalone bioluminescent Lumen Reef shell |
-| `lumen-temple.png` | Hero render of the temple |
-| `lumen-temple-path.png` | Camera-path preview |
+| `lumen-temple-light.png` | Light look of the map, as used in the final capture |
+| `lumen-temple-night.png` | Authored night look of the same map |
+| `lumen-temple-path.png` | Camera-path preview (night look) |
 | `lumen-reef-skin.png` | Shell preview |
 | `design-brief.md` | Original design intent, silhouette and palette |
 | `selection.json` | Selected concept and user confirmation |
+
+The map has two looks:
+
+- **Light** - the appearance used in the final video and the standard web-simulator look.
+  Same geometry, staircase and materials.
+- **Night** - the authored bioluminescent look stored in the map package: aqua fog, cyan
+  glows and the floating gold treasure under a dark sky.
+
+The night look is the one embedded in `lumen-temple.map`; the web simulator presents the
+same map with its standard lighter appearance, which is what the capture used. Both
+previews are included so the repository does not imply only one look exists.
 
 The map pairs with the staircase used in training:
 
