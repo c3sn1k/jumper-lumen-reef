@@ -1,0 +1,13 @@
+﻿{
+    "selected_design":  "candidate-1-lumen-reef",
+    "user_confirmation":  "1, per la palette in caso la mettiamo dopo se cosi è basilare",
+    "schema":  "design-selection/1",
+    "references":  [
+                       {
+                           "path":  "evidence/design-brief.md",
+                           "sha256":  "7043d64511e3048baa7ccd384c374e0764c6ff933f56760c9a2ce48f82270331",
+                           "bytes":  1208,
+                           "role":  "selected_design"
+                       }
+                   ]
+}

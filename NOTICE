@@ -1,0 +1,41 @@
+Project Lumen Reef
+Copyright 2026 Project Lumen Reef contributors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository contains challenge-specific work built on the Jumper ecosystem by
+KingKong Robotics:
+
+  Jumper
+    https://github.com/KingKongRobotics/jumper
+    Copyright 2026 KingKong Robotics
+    Apache License 2.0
+
+  Jumper Design
+    https://github.com/KingKongRobotics/jumper-design
+    Copyright 2026 KingKong Robotics
+    Apache License 2.0
+
+The following material is derivative work for the Lumen Reef challenge:
+
+  training/tasks/jumper/stairs/    the jumper.stairs task
+  training/tasks/jumper/tripod/env_cfg.py
+  training/scenes/temple_stairs.py
+  training/scenes/__init__.py
+  training/tasks/__init__.py
+  training/tests/test_task_parity.py
+  training/notebooks/jumper_colab.ipynb
+  training/tools/colab.py
+  design/lumen-temple.map
+  design/lumen-temple.scene.json
+  design/lumen-reef.skin
+  design/*.png
+
+The checkpoint policies and exported bundles were produced for this challenge by the
+repository authors.
+
+No third-party framework code is vendored in this repository. The upstream Jumper
+repositories' own NOTICE files list their third-party dependencies and licenses.
+Generated or user-provided content is not automatically relicensed by the Apache-2.0
+license; the design assets here are included under the same terms as the challenge
+work, with attribution to KingKong Robotics above.

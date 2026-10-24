@@ -1,0 +1,2458 @@
+{
+ "name": "lumen-temple",
+ "title": "Lumen Temple",
+ "description": "Night temple: ten wide rising steps lead to an altar with a floating gold treasure. Aqua bioluminescence and fog are retained.",
+ "tags": [
+  "outdoor",
+  "alien",
+  "night",
+  "legged",
+  "climbing",
+  "bioluminescent"
+ ],
+ "physics": {
+  "timestep": 0.002,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "iterations": 150
+ },
+ "sky": {
+  "preset": "night",
+  "fog": true,
+  "fog_range": [
+   4,
+   26
+  ],
+  "top": [
+   0.01,
+   0.02,
+   0.05
+  ],
+  "bottom": [
+   0.02,
+   0.04,
+   0.08
+  ]
+ },
+ "lighting": {
+  "preset": "night_moon",
+  "ambient": [
+   0.14,
+   0.17,
+   0.22
+  ],
+  "shadows": true,
+  "extra_lights": [
+   {
+    "name": "glow_cyan_a",
+    "type": "point",
+    "pos": [
+     -1.6,
+     1.1,
+     1.0
+    ],
+    "diffuse": [
+     0.08,
+     0.7,
+     0.65
+    ],
+    "specular": [
+     0.04,
+     0.15,
+     0.15
+    ],
+    "attenuation": [
+     1.0,
+     0.15,
+     0.04
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "glow_cyan_b",
+    "type": "point",
+    "pos": [
+     3.6,
+     1.1,
+     1.1
+    ],
+    "diffuse": [
+     0.08,
+     0.7,
+     0.65
+    ],
+    "specular": [
+     0.04,
+     0.15,
+     0.15
+    ],
+    "attenuation": [
+     1.0,
+     0.15,
+     0.04
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "moon_fill",
+    "type": "directional",
+    "dir": [
+     0.3,
+     0.5,
+     -0.8
+    ],
+    "diffuse": [
+     0.22,
+     0.28,
+     0.38
+    ],
+    "specular": [
+     0.05,
+     0.06,
+     0.1
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "path_fill",
+    "type": "point",
+    "pos": [
+     0.0,
+     0.0,
+     2.0
+    ],
+    "diffuse": [
+     0.08,
+     0.7,
+     0.65
+    ],
+    "specular": [
+     0.04,
+     0.15,
+     0.15
+    ],
+    "attenuation": [
+     1.0,
+     0.15,
+     0.04
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "path_cyan_start",
+    "type": "point",
+    "pos": [
+     -3.0,
+     0.0,
+     1.5
+    ],
+    "diffuse": [
+     0.08,
+     0.7,
+     0.65
+    ],
+    "specular": [
+     0.04,
+     0.15,
+     0.15
+    ],
+    "attenuation": [
+     1.0,
+     0.15,
+     0.04
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "path_cyan_end",
+    "type": "point",
+    "pos": [
+     3.2,
+     0.0,
+     1.5
+    ],
+    "diffuse": [
+     0.08,
+     0.7,
+     0.65
+    ],
+    "specular": [
+     0.04,
+     0.15,
+     0.15
+    ],
+    "attenuation": [
+     1.0,
+     0.15,
+     0.04
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "top_fill",
+    "type": "directional",
+    "dir": [
+     0.1,
+     0.2,
+     -1.0
+    ],
+    "diffuse": [
+     0.1,
+     0.13,
+     0.17
+    ],
+    "specular": [
+     0.02,
+     0.02,
+     0.03
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "floor_fill",
+    "type": "directional",
+    "dir": [
+     0.0,
+     0.1,
+     -1.0
+    ],
+    "diffuse": [
+     0.1,
+     0.13,
+     0.17
+    ],
+    "specular": [
+     0.02,
+     0.02,
+     0.03
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "fissure_glow",
+    "type": "point",
+    "pos": [
+     2.55,
+     0.0,
+     0.95
+    ],
+    "diffuse": [
+     0.1,
+     0.75,
+     0.68
+    ],
+    "specular": [
+     0.03,
+     0.1,
+     0.1
+    ],
+    "attenuation": [
+     1.0,
+     0.1,
+     0.02
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "rim_fill",
+    "type": "directional",
+    "dir": [
+     0.35,
+     -0.35,
+     -0.7
+    ],
+    "diffuse": [
+     0.12,
+     0.2,
+     0.22
+    ],
+    "specular": [
+     0.03,
+     0.05,
+     0.05
+    ],
+    "castshadow": false
+   },
+   {
+    "name": "treasure_gold",
+    "type": "point",
+    "pos": [
+     2.75,
+     0.0,
+     1.33
+    ],
+    "diffuse": [
+     1.0,
+     0.72,
+     0.24
+    ],
+    "specular": [
+     0.35,
+     0.22,
+     0.05
+    ],
+    "attenuation": [
+     1.0,
+     0.1,
+     0.02
+    ],
+    "castshadow": false
+   }
+  ]
+ },
+ "ground": {
+  "type": "plane",
+  "size": [
+   12,
+   10
+  ],
+  "material": "rift_sand",
+  "friction": "sand",
+  "condim": 4,
+  "contact": "default"
+ },
+ "materials": [
+  {
+   "name": "rift_sand",
+   "base": "sand",
+   "rgba": [
+    0.12,
+    0.16,
+    0.18,
+    1.0
+   ],
+   "roughness": 0.92
+  },
+  {
+   "name": "rift_rock",
+   "base": "sand",
+   "rgba": [
+    0.14,
+    0.18,
+    0.2,
+    1.0
+   ],
+   "roughness": 0.88
+  },
+  {
+   "name": "rift_moss",
+   "base": "grass",
+   "rgba": [
+    0.04,
+    0.3,
+    0.24,
+    1.0
+   ],
+   "emission": 0.2,
+   "roughness": 0.82
+  },
+  {
+   "name": "glow_cyan",
+   "base": "plastic_white",
+   "rgba": [
+    0.25,
+    0.9,
+    0.8,
+    1.0
+   ],
+   "emission": 0.85,
+   "roughness": 0.25
+  },
+  {
+   "name": "glow_pool",
+   "base": "glass",
+   "rgba": [
+    0.02,
+    0.4,
+    0.45,
+    0.88
+   ],
+   "emission": 0.45,
+   "reflectance": 0.35,
+   "roughness": 0.1
+  },
+  {
+   "name": "veg_dark",
+   "base": "sand",
+   "rgba": [
+    0.05,
+    0.22,
+    0.18,
+    1.0
+   ],
+   "roughness": 0.92
+  },
+  {
+   "name": "veg_teal",
+   "base": "grass",
+   "rgba": [
+    0.06,
+    0.28,
+    0.24,
+    1.0
+   ],
+   "emission": 0.12,
+   "roughness": 0.86
+  },
+  {
+   "name": "glow_gold",
+   "base": "plastic_white",
+   "rgba": [
+    1.0,
+    0.78,
+    0.28,
+    1.0
+   ],
+   "emission": 0.95,
+   "roughness": 0.22
+  }
+ ],
+ "assemblies": [],
+ "objects": [
+  {
+   "name": "wall_l1",
+   "shape": "box",
+   "size": [
+    1.4,
+    0.35,
+    0.9
+   ],
+   "pos": [
+    -2.6,
+    2.0,
+    0.9
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -2,
+    0,
+    -8
+   ]
+  },
+  {
+   "name": "wall_l2",
+   "shape": "box",
+   "size": [
+    1.6,
+    0.4,
+    1.2
+   ],
+   "pos": [
+    -0.8,
+    2.2,
+    1.2
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    2,
+    0,
+    6
+   ]
+  },
+  {
+   "name": "wall_l3",
+   "shape": "box",
+   "size": [
+    1.5,
+    0.35,
+    1.0
+   ],
+   "pos": [
+    1.0,
+    2.1,
+    1.0
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -3,
+    0,
+    -5
+   ]
+  },
+  {
+   "name": "wall_l4",
+   "shape": "box",
+   "size": [
+    1.4,
+    0.4,
+    1.4
+   ],
+   "pos": [
+    2.8,
+    2.2,
+    1.4
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    1,
+    0,
+    4
+   ]
+  },
+  {
+   "name": "wall_r1",
+   "shape": "box",
+   "size": [
+    1.4,
+    0.35,
+    1.0
+   ],
+   "pos": [
+    -2.4,
+    -2.1,
+    1.0
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    3,
+    0,
+    7
+   ]
+  },
+  {
+   "name": "wall_r2",
+   "shape": "box",
+   "size": [
+    1.6,
+    0.4,
+    1.3
+   ],
+   "pos": [
+    -0.6,
+    -2.2,
+    1.3
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -2,
+    0,
+    -6
+   ]
+  },
+  {
+   "name": "wall_r3",
+   "shape": "box",
+   "size": [
+    1.5,
+    0.35,
+    0.9
+   ],
+   "pos": [
+    1.2,
+    -2.0,
+    0.9
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    2,
+    0,
+    5
+   ]
+  },
+  {
+   "name": "wall_r4",
+   "shape": "box",
+   "size": [
+    1.4,
+    0.4,
+    1.5
+   ],
+   "pos": [
+    3.0,
+    -2.2,
+    1.5
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -1,
+    0,
+    -4
+   ]
+  },
+  {
+   "name": "spire_l1",
+   "shape": "cylinder",
+   "size": [
+    0.3,
+    1.1
+   ],
+   "pos": [
+    -1.8,
+    2.9,
+    1.1
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "collision": true
+  },
+  {
+   "name": "spire_l2",
+   "shape": "cylinder",
+   "size": [
+    0.24,
+    0.8
+   ],
+   "pos": [
+    0.4,
+    2.9,
+    0.8
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "collision": true
+  },
+  {
+   "name": "spire_l3",
+   "shape": "cylinder",
+   "size": [
+    0.34,
+    1.4
+   ],
+   "pos": [
+    2.6,
+    3.0,
+    1.4
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "collision": true
+  },
+  {
+   "name": "spire_r1",
+   "shape": "cylinder",
+   "size": [
+    0.28,
+    1.0
+   ],
+   "pos": [
+    -1.2,
+    -3.0,
+    1.0
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "collision": true
+  },
+  {
+   "name": "spire_r2",
+   "shape": "cylinder",
+   "size": [
+    0.22,
+    0.85
+   ],
+   "pos": [
+    1.8,
+    -2.9,
+    0.85
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "collision": true
+  },
+  {
+   "name": "spire_r3",
+   "shape": "cylinder",
+   "size": [
+    0.32,
+    1.3
+   ],
+   "pos": [
+    3.4,
+    -3.1,
+    1.3
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "collision": true
+  },
+  {
+   "name": "rock_l1",
+   "shape": "box",
+   "size": [
+    0.2,
+    0.16,
+    0.14
+   ],
+   "pos": [
+    -2.2,
+    1.25,
+    0.14
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    8,
+    0,
+    25
+   ]
+  },
+  {
+   "name": "rock_l2",
+   "shape": "box",
+   "size": [
+    0.16,
+    0.2,
+    0.12
+   ],
+   "pos": [
+    0.3,
+    1.3,
+    0.12
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -6,
+    0,
+    -20
+   ]
+  },
+  {
+   "name": "rock_l3",
+   "shape": "box",
+   "size": [
+    0.22,
+    0.18,
+    0.16
+   ],
+   "pos": [
+    2.6,
+    1.25,
+    0.16
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    4,
+    0,
+    35
+   ]
+  },
+  {
+   "name": "rock_r1",
+   "shape": "box",
+   "size": [
+    0.18,
+    0.14,
+    0.13
+   ],
+   "pos": [
+    -1.5,
+    -1.3,
+    0.13
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -10,
+    0,
+    -25
+   ]
+  },
+  {
+   "name": "rock_r2",
+   "shape": "box",
+   "size": [
+    0.2,
+    0.18,
+    0.15
+   ],
+   "pos": [
+    1.4,
+    -1.28,
+    0.15
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    6,
+    0,
+    20
+   ]
+  },
+  {
+   "name": "rock_r3",
+   "shape": "box",
+   "size": [
+    0.17,
+    0.21,
+    0.12
+   ],
+   "pos": [
+    3.4,
+    -1.3,
+    0.12
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true,
+   "euler": [
+    -4,
+    0,
+    -35
+   ]
+  },
+  {
+   "name": "rift_arch",
+   "shape": "box",
+   "size": [
+    0.35,
+    1.7,
+    0.3
+   ],
+   "pos": [
+    2.55,
+    0.0,
+    1.55
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "crystal_c1",
+   "shape": "cylinder",
+   "size": [
+    0.1,
+    0.275
+   ],
+   "pos": [
+    -2.2,
+    1.5,
+    0.28
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    12,
+    0
+   ]
+  },
+  {
+   "name": "crystal_c2",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.19
+   ],
+   "pos": [
+    -1.1,
+    1.7,
+    0.19
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    -8,
+    0
+   ]
+  },
+  {
+   "name": "crystal_c3",
+   "shape": "cylinder",
+   "size": [
+    0.12,
+    0.35
+   ],
+   "pos": [
+    0.7,
+    1.6,
+    0.35
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    6,
+    0
+   ]
+  },
+  {
+   "name": "crystal_c4",
+   "shape": "cylinder",
+   "size": [
+    0.08,
+    0.225
+   ],
+   "pos": [
+    2.2,
+    1.7,
+    0.23
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    -5,
+    0
+   ]
+  },
+  {
+   "name": "crystal_c5",
+   "shape": "cylinder",
+   "size": [
+    0.1,
+    0.3
+   ],
+   "pos": [
+    3.5,
+    1.5,
+    0.3
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    10,
+    0
+   ]
+  },
+  {
+   "name": "crystal_m1",
+   "shape": "cylinder",
+   "size": [
+    0.08,
+    0.21
+   ],
+   "pos": [
+    -2.0,
+    -1.5,
+    0.21
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    -10,
+    0
+   ]
+  },
+  {
+   "name": "crystal_m2",
+   "shape": "cylinder",
+   "size": [
+    0.12,
+    0.375
+   ],
+   "pos": [
+    -0.4,
+    -1.7,
+    0.38
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    7,
+    0
+   ]
+  },
+  {
+   "name": "crystal_m3",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.18
+   ],
+   "pos": [
+    1.4,
+    -1.6,
+    0.18
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    -6,
+    0
+   ]
+  },
+  {
+   "name": "crystal_m4",
+   "shape": "cylinder",
+   "size": [
+    0.11,
+    0.325
+   ],
+   "pos": [
+    2.9,
+    -1.7,
+    0.33
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    8,
+    0
+   ]
+  },
+  {
+   "name": "crystal_m5",
+   "shape": "cylinder",
+   "size": [
+    0.09,
+    0.25
+   ],
+   "pos": [
+    4.0,
+    -1.5,
+    0.25
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    -8,
+    0
+   ]
+  },
+  {
+   "name": "pool_c1",
+   "shape": "cylinder",
+   "size": [
+    0.4,
+    0.003
+   ],
+   "pos": [
+    -1.6,
+    1.55,
+    0.006
+   ],
+   "kind": "static",
+   "material": "glow_pool",
+   "collision": false
+  },
+  {
+   "name": "pool_m1",
+   "shape": "cylinder",
+   "size": [
+    0.36,
+    0.003
+   ],
+   "pos": [
+    1.9,
+    -1.55,
+    0.006
+   ],
+   "kind": "static",
+   "material": "glow_pool",
+   "collision": false
+  },
+  {
+   "name": "pool_c2",
+   "shape": "cylinder",
+   "size": [
+    0.34,
+    0.003
+   ],
+   "pos": [
+    3.6,
+    1.55,
+    0.006
+   ],
+   "kind": "static",
+   "material": "glow_pool",
+   "collision": false
+  },
+  {
+   "name": "crystal_m_start1",
+   "shape": "cylinder",
+   "size": [
+    0.11,
+    0.32
+   ],
+   "pos": [
+    -3.6,
+    -1.2,
+    0.32
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    10,
+    0
+   ]
+  },
+  {
+   "name": "crystal_m_start2",
+   "shape": "cylinder",
+   "size": [
+    0.08,
+    0.22
+   ],
+   "pos": [
+    -2.8,
+    -1.45,
+    0.22
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    -8,
+    0
+   ]
+  },
+  {
+   "name": "crystal_c_start",
+   "shape": "cylinder",
+   "size": [
+    0.09,
+    0.3
+   ],
+   "pos": [
+    -4.0,
+    1.1,
+    0.3
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true,
+   "euler": [
+    0,
+    7,
+    0
+   ]
+  },
+  {
+   "name": "pool_start",
+   "shape": "cylinder",
+   "size": [
+    0.45,
+    0.003
+   ],
+   "pos": [
+    -3.8,
+    -1.9,
+    0.006
+   ],
+   "kind": "static",
+   "material": "glow_pool",
+   "collision": false
+  },
+  {
+   "name": "moss_0",
+   "shape": "cylinder",
+   "size": [
+    0.3,
+    0.003
+   ],
+   "pos": [
+    -3.6,
+    -0.9,
+    0.006
+   ],
+   "kind": "static",
+   "material": "rift_moss",
+   "collision": false
+  },
+  {
+   "name": "moss_1",
+   "shape": "cylinder",
+   "size": [
+    0.3,
+    0.003
+   ],
+   "pos": [
+    -1.2,
+    1.0,
+    0.006
+   ],
+   "kind": "static",
+   "material": "rift_moss",
+   "collision": false
+  },
+  {
+   "name": "moss_2",
+   "shape": "cylinder",
+   "size": [
+    0.3,
+    0.003
+   ],
+   "pos": [
+    0.6,
+    -1.0,
+    0.006
+   ],
+   "kind": "static",
+   "material": "rift_moss",
+   "collision": false
+  },
+  {
+   "name": "moss_3",
+   "shape": "cylinder",
+   "size": [
+    0.3,
+    0.003
+   ],
+   "pos": [
+    2.0,
+    1.05,
+    0.006
+   ],
+   "kind": "static",
+   "material": "rift_moss",
+   "collision": false
+  },
+  {
+   "name": "moss_4",
+   "shape": "cylinder",
+   "size": [
+    0.3,
+    0.003
+   ],
+   "pos": [
+    3.4,
+    -0.95,
+    0.006
+   ],
+   "kind": "static",
+   "material": "rift_moss",
+   "collision": false
+  },
+  {
+   "name": "cluster_0",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.18
+   ],
+   "pos": [
+    -3.4,
+    1.45,
+    0.18
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true
+  },
+  {
+   "name": "cluster_1",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.18
+   ],
+   "pos": [
+    -2.6,
+    1.55,
+    0.18
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true
+  },
+  {
+   "name": "cluster_2",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.18
+   ],
+   "pos": [
+    0.2,
+    -1.55,
+    0.18
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true
+  },
+  {
+   "name": "cluster_3",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.18
+   ],
+   "pos": [
+    1.2,
+    1.55,
+    0.18
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true
+  },
+  {
+   "name": "cluster_4",
+   "shape": "cylinder",
+   "size": [
+    0.07,
+    0.18
+   ],
+   "pos": [
+    3.6,
+    -1.5,
+    0.18
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": true
+  },
+  {
+   "name": "ground_mesh",
+   "shape": "mesh",
+   "mesh": "rift_ground",
+   "pos": [
+    0,
+    0,
+    0
+   ],
+   "kind": "static",
+   "material": "rift_sand",
+   "collision": false
+  },
+  {
+   "name": "plant_0",
+   "shape": "mesh",
+   "mesh": "fern_a",
+   "pos": [
+    -1.9649395254511777,
+    2.188115424958986,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    228.59997854569943
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_1",
+   "shape": "mesh",
+   "mesh": "fern_b",
+   "pos": [
+    0.7681741068998256,
+    -1.4064236740249396,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    285.3480089520887
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_2",
+   "shape": "mesh",
+   "mesh": "broadleaf_a",
+   "pos": [
+    3.62833242699482,
+    1.8955527954020288,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    181.8302952492042
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_3",
+   "shape": "mesh",
+   "mesh": "broadleaf_b",
+   "pos": [
+    -1.3463096375829688,
+    -1.0552480405069904,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    133.57680898755882
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_4",
+   "shape": "mesh",
+   "mesh": "reed_a",
+   "pos": [
+    1.69265372548448,
+    1.1642868592524638,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    285.75036786850745
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_5",
+   "shape": "mesh",
+   "mesh": "reed_b",
+   "pos": [
+    -1.3794013670309893,
+    -1.4339466698092636,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    15.240749994427922
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_6",
+   "shape": "mesh",
+   "mesh": "fern_a",
+   "pos": [
+    5.278782517163046,
+    2.2688347907487856,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    315.01422752765467
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_7",
+   "shape": "mesh",
+   "mesh": "fern_b",
+   "pos": [
+    1.9582437742055228,
+    -1.1062155979027117,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    118.4145646874142
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_8",
+   "shape": "mesh",
+   "mesh": "broadleaf_a",
+   "pos": [
+    0.9287051673014752,
+    1.2410861873667443,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    342.70708216464413
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_9",
+   "shape": "mesh",
+   "mesh": "broadleaf_b",
+   "pos": [
+    -0.19451422466300405,
+    -1.3054415436289155,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    294.30339956169576
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_10",
+   "shape": "mesh",
+   "mesh": "reed_a",
+   "pos": [
+    -2.313569219150155,
+    2.5811073741484933,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    163.1259338408373
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_11",
+   "shape": "mesh",
+   "mesh": "reed_b",
+   "pos": [
+    1.4024250122724857,
+    -1.615820349471393,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    174.4933099627132
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_12",
+   "shape": "mesh",
+   "mesh": "fern_a",
+   "pos": [
+    -1.7738937520500984,
+    1.1112802630320513,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    311.7188103143273
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_13",
+   "shape": "mesh",
+   "mesh": "fern_b",
+   "pos": [
+    -1.3566647518484074,
+    -2.337427927372401,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    75.08239748005542
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_14",
+   "shape": "mesh",
+   "mesh": "broadleaf_a",
+   "pos": [
+    5.02829027835539,
+    2.525043620062566,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    271.72528253309656
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_15",
+   "shape": "mesh",
+   "mesh": "broadleaf_b",
+   "pos": [
+    3.2362960212477776,
+    -2.0082634201761453,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    262.7126555557076
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_16",
+   "shape": "mesh",
+   "mesh": "reed_a",
+   "pos": [
+    -2.3344425233224784,
+    1.8359368925709671,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    297.72651061179766
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_17",
+   "shape": "mesh",
+   "mesh": "reed_b",
+   "pos": [
+    -1.6506090173966381,
+    -2.5732262856598895,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    319.52149773311834
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_18",
+   "shape": "mesh",
+   "mesh": "fern_a",
+   "pos": [
+    0.1635347078762157,
+    1.6526139015327304,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    162.47578606395479
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_19",
+   "shape": "mesh",
+   "mesh": "fern_b",
+   "pos": [
+    -0.04373414541646081,
+    -2.691490498925347,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    139.17357963065555
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_20",
+   "shape": "mesh",
+   "mesh": "broadleaf_a",
+   "pos": [
+    -3.1665297243233805,
+    1.2038831778783885,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    258.51332379698204
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_21",
+   "shape": "mesh",
+   "mesh": "broadleaf_b",
+   "pos": [
+    5.237563640227977,
+    -1.868417762999779,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    176.9542579743414
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_22",
+   "shape": "mesh",
+   "mesh": "reed_a",
+   "pos": [
+    1.3887488157644046,
+    2.284490432676563,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    79.93188743104511
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_23",
+   "shape": "mesh",
+   "mesh": "reed_b",
+   "pos": [
+    1.8974421044601342,
+    -1.9682035521938799,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    224.14417982530196
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_24",
+   "shape": "mesh",
+   "mesh": "fern_a",
+   "pos": [
+    -1.828106973870223,
+    1.3306515521088254,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    125.35461768595198
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_25",
+   "shape": "mesh",
+   "mesh": "fern_b",
+   "pos": [
+    4.665540388164596,
+    -1.6219121434320212,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    215.0051663420596
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_26",
+   "shape": "mesh",
+   "mesh": "broadleaf_a",
+   "pos": [
+    -0.7324586023527457,
+    1.2204008279617315,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    23.631819578459236
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_27",
+   "shape": "mesh",
+   "mesh": "broadleaf_b",
+   "pos": [
+    3.6791538239565296,
+    -2.332080669383558,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    134.95519949166942
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "plant_28",
+   "shape": "mesh",
+   "mesh": "reed_a",
+   "pos": [
+    2.5451605962162236,
+    2.165237940158275,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    323.5311484103865
+   ],
+   "kind": "static",
+   "material": "veg_teal",
+   "collision": false
+  },
+  {
+   "name": "plant_29",
+   "shape": "mesh",
+   "mesh": "reed_b",
+   "pos": [
+    4.937037027638487,
+    -1.7215741888757294,
+    0.0
+   ],
+   "euler": [
+    0,
+    0,
+    356.07946648233406
+   ],
+   "kind": "static",
+   "material": "veg_dark",
+   "collision": false
+  },
+  {
+   "name": "firefly_0",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    4.87601002925359,
+    1.667674433578116,
+    1.0065357228911487
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_1",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    0.9236596245432258,
+    -1.3882281911895946,
+    0.49776623211078314
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_2",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    4.159614679704047,
+    1.1109803365942967,
+    0.3554681208088001
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_3",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    3.5643669204614774,
+    -1.9060916093277696,
+    0.6865383390035089
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_4",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    3.830789983414401,
+    0.9678257168032179,
+    0.5063812891151085
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_5",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    -0.7650528707206528,
+    -1.4454167382655507,
+    0.4365037405164556
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_6",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    -2.6166093818005973,
+    1.3395071010221997,
+    1.0193161615497748
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_7",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    5.060955313370154,
+    -1.8696020487473375,
+    0.6831785562598831
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_8",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    -1.081395697798245,
+    2.1465408000746775,
+    0.72050224489835
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_9",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    2.920311400474306,
+    -0.9367892566224774,
+    0.46967319786214173
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_10",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    3.841415899038971,
+    1.9337837964295899,
+    1.0051622412726786
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_11",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    1.8513885683656621,
+    -1.4539072441294498,
+    0.7649116093074606
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_12",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    3.9344732344562754,
+    1.3003704576226593,
+    0.727467838456705
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "firefly_13",
+   "shape": "ellipsoid",
+   "size": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "pos": [
+    -0.8817528190448098,
+    -1.898732517935319,
+    0.3081868432901257
+   ],
+   "kind": "static",
+   "material": "glow_cyan",
+   "collision": false
+  },
+  {
+   "name": "altar_platform",
+   "shape": "box",
+   "size": [
+    0.75,
+    0.9,
+    0.22
+   ],
+   "pos": [
+    2.75,
+    0.0,
+    0.22
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "altar_pedestal",
+   "shape": "cylinder",
+   "size": [
+    0.38,
+    0.12
+   ],
+   "pos": [
+    2.75,
+    0.0,
+    0.56
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "altar_treasure",
+   "shape": "sphere",
+   "size": [
+    0.15
+   ],
+   "pos": [
+    2.75,
+    0.0,
+    1.1
+   ],
+   "kind": "static",
+   "material": "glow_gold",
+   "collision": false
+  },
+  {
+   "name": "temple_step_00",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.015
+   ],
+   "pos": [
+    -0.85,
+    0.0,
+    0.015
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_01",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.03
+   ],
+   "pos": [
+    -0.5499999999999999,
+    0.0,
+    0.03
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_02",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.05
+   ],
+   "pos": [
+    -0.25,
+    0.0,
+    0.05
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_03",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.07
+   ],
+   "pos": [
+    0.049999999999999906,
+    0.0,
+    0.07
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_04",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.09000000000000001
+   ],
+   "pos": [
+    0.35,
+    0.0,
+    0.09000000000000001
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_05",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.11000000000000001
+   ],
+   "pos": [
+    0.65,
+    0.0,
+    0.11000000000000001
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_06",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.135
+   ],
+   "pos": [
+    0.9499999999999998,
+    0.0,
+    0.135
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_07",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.16
+   ],
+   "pos": [
+    1.25,
+    0.0,
+    0.16
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_08",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.19
+   ],
+   "pos": [
+    1.5499999999999998,
+    0.0,
+    0.19
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  },
+  {
+   "name": "temple_step_09",
+   "shape": "box",
+   "size": [
+    0.15,
+    0.9,
+    0.22
+   ],
+   "pos": [
+    1.8499999999999996,
+    0.0,
+    0.22
+   ],
+   "kind": "static",
+   "material": "rift_rock",
+   "friction": "gravel",
+   "collision": true
+  }
+ ],
+ "spawn": {
+  "position": [
+   -4.2,
+   0.0,
+   0.0
+  ],
+  "yaw": 0.0,
+  "clearance": 0.5,
+  "bounds": [
+   -4.5,
+   -3.0,
+   0.0,
+   5.0,
+   3.0,
+   2.5
+  ]
+ },
+ "cameras": [
+  {
+   "name": "cam_hero",
+   "pos": [
+    -4.8,
+    -3.2,
+    3.2
+   ],
+   "target": [
+    2.0,
+    0.0,
+    0.35
+   ],
+   "fovy": 55
+  },
+  {
+   "name": "cam_path",
+   "pos": [
+    -4.0,
+    0.0,
+    1.7
+   ],
+   "target": [
+    2.7,
+    0.0,
+    0.55
+   ],
+   "fovy": 66
+  }
+ ],
+ "viewer": {
+  "camera_pos": [
+   -4.0,
+   0.0,
+   1.7
+  ],
+  "camera_target": [
+   2.7,
+   0.0,
+   0.55
+  ],
+  "realtime": 1.0,
+  "exposure": 1.3
+ },
+ "meshes": [
+  {
+   "name": "rift_ground",
+   "file": "assets/rift_ground.obj"
+  },
+  {
+   "name": "fern_a",
+   "file": "assets/fern_a.obj"
+  },
+  {
+   "name": "fern_b",
+   "file": "assets/fern_b.obj"
+  },
+  {
+   "name": "broadleaf_a",
+   "file": "assets/broadleaf_a.obj"
+  },
+  {
+   "name": "broadleaf_b",
+   "file": "assets/broadleaf_b.obj"
+  },
+  {
+   "name": "reed_a",
+   "file": "assets/reed_a.obj"
+  },
+  {
+   "name": "reed_b",
+   "file": "assets/reed_b.obj"
+  }
+ ]
+}
