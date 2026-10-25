@@ -33,9 +33,19 @@ The curriculum panel is the important one: the command curriculum steps through 
 error drops below the promotion threshold. The policy then keeps training at the full
 command range for the remaining ~1,200 iterations.
 
-The final capture uses the **light** Lumen Temple look; the authored **night** look is
-included as a second preview below. The earlier clips in the working folder were early
-checkpoints and are not part of this repository.
+## Training replay clips
+
+Two 15-second replays of the exported checkpoints, captured in the training environment
+(`temple_stairs`, 200 Hz, 640x480, 30 fps, red robot). For display the reset is pinned to
+the default start pose - at the base of the staircase, yaw 0 - because training normally
+randomises the robot's x/y offset and yaw. The command is 0.5 m/s forward.
+
+| Checkpoint | Replay |
+|---|---|
+| `model_1000.pt` | [`media/model_1000_training.mp4`](media/model_1000_training.mp4) |
+| `model_2199.pt` / `model_2200.pt` | [`media/model_2200_training.mp4`](media/model_2200_training.mp4) |
+
+These are training replays, not the web-simulator capture.
 
 ## The task
 
@@ -85,6 +95,10 @@ lumen-reef-challenge/
 |   |-- lumen-temple-night.png  authored night look
 |   |-- lumen-reef-skin.png     shell preview
 |   `-- design-brief.md         design intent and palette
+|-- media/
+|   |-- model_1000_training.mp4 training replay for model_1000
+|   |-- model_2200_training.mp4 training replay for the final checkpoint
+|   `-- README.md               replay setup and checkpoint pairing
 |-- training/
 |   |-- tasks/jumper/stairs/    the registered jumper.stairs task
 |   |-- tasks/jumper/tripod/    modified tripod env_cfg.py (foot_target_height)
