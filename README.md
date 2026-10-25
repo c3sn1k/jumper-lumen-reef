@@ -210,7 +210,8 @@ loading the shell on another map.
   treasure, aqua fog and cyan bioluminescence.
 
 The map is authored with a **night** look. The final capture used the **light** look of
-the same map, which is how the web simulator presents it. Both previews are included:
+the same map - cyan walls and floor - which is how the web simulator presents it. Both
+previews are included:
 
 | Light look - used in the capture | Authored night look |
 |---|---|

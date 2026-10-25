@@ -14,8 +14,8 @@
 
 The map has two looks:
 
-- **Light** - the appearance used in the final video and the standard web-simulator look.
-  Same geometry, staircase and materials.
+- **Light** - cyan walls and floor, the appearance used in the final video and the
+  standard web-simulator look. Same geometry and staircase.
 - **Night** - the authored bioluminescent look stored in the map package: aqua fog, cyan
   glows and the floating gold treasure under a dark sky.
 
