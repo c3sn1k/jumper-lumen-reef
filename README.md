@@ -223,11 +223,13 @@ loading the shell on another map.
 - **Lumen Temple** - ten-step basalt staircase, altar platform at 0.44 m, floating gold
   treasure, aqua fog and cyan bioluminescence.
 
-The map is authored with a **night** look. The final capture used the **light** look of
-the same map - light azure walls and floor - which is how the web simulator presents it. Both
-previews are included:
+The map itself is authored **dark/night**. The official web simulator re-renders the
+same map with its standard light appearance - azure walls and floor - and that is the
+look the final capture used. The light preview below is therefore a **frame from the web
+simulator**, not a native render; the night preview is the authored look stored in the
+map file.
 
-| Light look - azure walls and floor | Authored night look |
+| Web simulator look (frame from the capture) | Authored night look (the map file) |
 |---|---|
 | ![Lumen Temple light](design/lumen-temple-light.png) | ![Lumen Temple night](design/lumen-temple-night.png) |
 
