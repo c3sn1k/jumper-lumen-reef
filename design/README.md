@@ -5,7 +5,7 @@
 | `lumen-temple.map` | Built Lumen Temple map with the Lumen Reef skin embedded |
 | `lumen-temple.scene.json` | Source scene for the staircase, altar and treasure |
 | `lumen-reef.skin` | Standalone bioluminescent Lumen Reef shell |
-| `lumen-temple-light.png` | Light look of the map, as used in the final capture |
+| `lumen-temple-light.png` | Light look of the map (cyan walls and floor), matching the final capture |
 | `lumen-temple-night.png` | Authored night look of the same map |
 | `lumen-temple-path.png` | Camera-path preview (night look) |
 | `lumen-reef-skin.png` | Shell preview |
