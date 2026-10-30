@@ -2,8 +2,12 @@
 
 | App | Policy | Notes |
 |---|---|---|
-| `stairs_final.app` | `model_2199.pt` / `model_2200.pt` | Final checkpoint, 2,200-iteration run, Curriculum Level 3 |
-| `stairs_1000.app` | `model_1000.pt` | Iteration 1,000, the point where Level 3 was reached |
+| `stairs_final.app` | `model_1000.pt` | **Recommended.** Best-performing checkpoint after replay tests |
+| `stairs_1000.app` | `model_1000.pt` | Same policy, kept under the iteration-1,000 name |
+
+The trainer's last file (`model_2199.pt` / `model_2200.pt`) is kept in
+`checkpoints/` for provenance; it replayed worse than `model_1000.pt` and is not used
+for the final app.
 
 Both are standard Jumper policy bundles: a ZIP whose root holds `bundle.json`,
 `controller.toml`, `stairs.json`, `reference.json`, the ONNX policy under `models/`,

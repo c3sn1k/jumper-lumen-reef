@@ -21,8 +21,13 @@ training step.
 
 | Checkpoint | Bundle |
 |---|---|
-| `model_1000.pt` | `apps/stairs_1000.app` |
-| `model_2199.pt` / `model_2200.pt` | `apps/stairs_final.app` |
+| `model_1000.pt` | `apps/stairs_final.app` (recommended) and `apps/stairs_1000.app` |
+| `model_2199.pt` / `model_2200.pt` | none; kept for provenance |
+
+After replay tests across the run, `model_1000.pt` was the most consistent checkpoint,
+so the published final app is built from it. The trainer's last file is still included
+because it is part of the run's history; it replayed worse than 1,000 and is not the
+final policy.
 
 Each bundle contains the ONNX exported from the matching checkpoint (`models/stairs.onnx`)
 and the deployment contract (`stairs.json`). To rebuild an `actor.onnx` from a `.pt`,

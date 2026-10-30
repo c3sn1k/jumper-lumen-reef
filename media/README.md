@@ -2,8 +2,8 @@
 
 | File | Checkpoint | Setup |
 |---|---|---|
-| `model_1000_training.mp4` | `checkpoints/model_1000.pt` | 15 s, `temple_stairs`, 200 Hz, 640x480, 30 fps |
-| `model_2200_training.mp4` | `checkpoints/model_2199.pt` / `model_2200.pt` | 15 s, `temple_stairs`, 200 Hz, 640x480, 30 fps |
+| `model_1000_training.mp4` | `checkpoints/model_1000.pt` (recommended) | 15 s, `temple_stairs`, 200 Hz, 640x480, 30 fps |
+| `model_2200_training.mp4` | `checkpoints/model_2199.pt` / `model_2200.pt` (for comparison) | 15 s, `temple_stairs`, 200 Hz, 640x480, 30 fps |
 
 Both clips are replays of the exported policy in the training environment, recorded with
 the upstream `scripts/play.py` (the same replay path the Colab notebook uses). They are

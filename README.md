@@ -5,9 +5,12 @@ tripod-gait policy that learns to climb the ten-step **Lumen Temple** staircase,
 in the bioluminescent **Lumen Reef** shell.
 
 The policy was trained for **2,200 iterations** with PPO and reached **Curriculum
-Level 3**. The final policy clears the staircase using only proprioception - no terrain
-scanner, no height map, no external state estimator - so the same exported network can
-run in the official simulator and on the deployment controller.
+Level 3**. Replay tests across the run found the **iteration-1,000 checkpoint** the most
+consistent, so the published final app is built from it; the trainer's last file
+(`model_2199.pt` / `model_2200.pt`) is kept for provenance. The policy clears the
+staircase using only proprioception - no terrain scanner, no height map, no external
+state estimator - so the same exported network can run in the official simulator and on
+the deployment controller.
 
 ![Lumen Temple - light look used in the capture](design/lumen-temple-light.png)
 
@@ -16,7 +19,8 @@ run in the official simulator and on the deployment controller.
 | Metric | Value |
 |---|---|
 | Training iterations | 2,200 |
-| Final checkpoint | `model_2200.pt` (identical alias of the trainer's last file, `model_2199.pt`) |
+| Best checkpoint | `model_1000.pt` (selected after replay tests) |
+| Trainer's last file | `model_2199.pt` / `model_2200.pt` (kept for provenance) |
 | Curriculum | **Level 3** reached at ~iteration 1,000 and held to the end |
 | Mean reward | ~50 at convergence |
 | Mean episode length | 1,000 steps (no early termination) |
@@ -42,8 +46,8 @@ randomises the robot's x/y offset and yaw. The command is 0.5 m/s forward.
 
 | Checkpoint | Replay |
 |---|---|
-| `model_1000.pt` | [`media/model_1000_training.mp4`](media/model_1000_training.mp4) |
-| `model_2199.pt` / `model_2200.pt` | [`media/model_2200_training.mp4`](media/model_2200_training.mp4) |
+| `model_1000.pt` (recommended) | [`media/model_1000_training.mp4`](media/model_1000_training.mp4) |
+| `model_2199.pt` / `model_2200.pt` (for comparison) | [`media/model_2200_training.mp4`](media/model_2200_training.mp4) |
 
 These are training replays, not the web-simulator capture.
 
@@ -77,8 +81,8 @@ lumen-reef-challenge/
 |-- LICENSE                     Apache-2.0
 |-- NOTICE                      upstream attribution
 |-- apps/
-|   |-- stairs_1000.app         simulator bundle for the iteration-1000 checkpoint
-|   `-- stairs_final.app        simulator bundle for the final checkpoint (2199)
+|   |-- stairs_1000.app         same policy under the iteration-1000 name
+|   `-- stairs_final.app        simulator bundle from model_1000 (recommended)
 |-- checkpoints/
 |   |-- model_1000.pt           mid-training checkpoint, already at Curriculum Level 3
 |   |-- model_2199.pt           the trainer's final saved file
@@ -97,8 +101,12 @@ lumen-reef-challenge/
 |   `-- design-brief.md         design intent and palette
 |-- media/
 |   |-- model_1000_training.mp4 training replay for model_1000
-|   |-- model_2200_training.mp4 training replay for the final checkpoint
+|   |-- model_2200_training.mp4 training replay for the last file (for comparison)
 |   `-- README.md               replay setup and checkpoint pairing
+|-- pedestal/
+|   |-- README.md               pedestal task, environment contract and limits
+|   |-- checkpoints/            50 attractor-run checkpoints + SHA-256 manifest
+|   `-- training/               pedestal overlay and COLAB_PEDESTAL.md
 |-- training/
 |   |-- tasks/jumper/stairs/    the registered jumper.stairs task
 |   |-- tasks/jumper/tripod/    modified tripod env_cfg.py (foot_target_height)
@@ -117,10 +125,12 @@ checkout of that repository to reproduce the run.
 
 The official Jumper web simulator loads a policy bundle (`.app`). Pick one:
 
-- **Final policy**: [`apps/stairs_final.app`](apps/stairs_final.app) - trained for 2,200
-  iterations, Curriculum Level 3.
-- **Earlier snapshot**: [`apps/stairs_1000.app`](apps/stairs_1000.app) - iteration 1,000,
-  the point where Level 3 was first reached.
+- **Final policy**: [`apps/stairs_final.app`](apps/stairs_final.app) - built from
+  `model_1000.pt`, the best-performing checkpoint after replay tests (iteration 1,000).
+- **Same policy under the iteration name**: [`apps/stairs_1000.app`](apps/stairs_1000.app) -
+  identical bundle content; kept for the checkpoint/replay pairing.
+- **Trainer's last file** (`model_2199.pt` / `model_2200.pt`): kept in `checkpoints/`
+  for provenance; it replayed worse than 1,000 and is not the published final app.
 
 Open the official simulator, choose the bundle-upload / `.app` entry point, and load the
 file. The bundle already contains:
@@ -152,6 +162,33 @@ is supported through the same contract.
 
 The app's embedded reference pass was verified on the build host: replaying the 24
 recorded frames gives **0.000e+00** observation and target error.
+
+## Pedestal task
+
+The repository also publishes the best **pedestal** attempt: the crab walks off the
+platform, hooks the round pedestal's top rim with its two front claws, and pulls the
+body up. The method was the **attractor payload**: a stairs-actor warm start, a contact
+phase machine, and a claw attractor plus a bi-manual pull-up cascade over a
+0.08-0.24 m height curriculum.
+
+- **Checkpoints**: all 50 files of the 10,000-iteration attractor run are in
+  [`pedestal/checkpoints/`](pedestal/checkpoints/), with a SHA-256 manifest and the
+  curriculum level at save.
+- **Environment**: the checkpoints require the pedestal task, **22 degrees of freedom**
+  (20 gait joints + 2 grippers), actor observation 451, and the raised contact buffers
+  **`nconmax = 2000`, `njmax = 5000`**. The skeleton's default 128/512 buffers drop
+  contacts and the robot goes slack at frame zero. Control is 50 Hz, physics 200 Hz,
+  episodes are 20 s.
+- **Replay**: apply the overlay in [`pedestal/training/`](pedestal/training/) and use
+  `--pedestal-height`; start with `model_3000.pt` at **0.08 m**. The 0.20-0.24 m rungs
+  are beyond the mechanism (motors saturate, not enough leverage), so the late
+  checkpoints lean on the rim instead of mounting.
+- **App**: **no pedestal `.app` is published**. The only bundle attempt
+  (`model_3999.pt`) is a reward-hacked policy (it rears up on the spot) and is not
+  included; the web host also does not know `jumper.pedestal`.
+
+The full contract, measured notes and reproduction commands are in
+[`pedestal/README.md`](pedestal/README.md).
 
 ## Reproduce the training run
 
@@ -189,7 +226,7 @@ recorded frames gives **0.000e+00** observation and target error.
    ```bash
    python scripts/play.py \
      --task jumper.stairs --model jumper \
-     --checkpoint checkpoints/model_2199.pt \
+     --checkpoint checkpoints/model_1000.pt \
      --scene temple_stairs --backend warp --device cuda:0 \
      --num_envs 1 --headless --steps 1250 \
      --video stairs.mp4
@@ -244,11 +281,12 @@ workflow's content library, or load the map directly in the official simulator.
 
 | Artifact | Built from | Notes |
 |---|---|---|
-| `apps/stairs_1000.app` | `checkpoints/model_1000.pt` | Iteration 1,000; Curriculum Level 3 just reached |
-| `apps/stairs_final.app` | `checkpoints/model_2199.pt` / `model_2200.pt` | Final checkpoint of the 2,200-iteration run |
-| `checkpoints/model_1000.pt` | - | 2,200-iteration run, iteration 1,000 |
-| `checkpoints/model_2199.pt` | - | 2,200-iteration run, final saved iteration |
+| `apps/stairs_final.app` | `checkpoints/model_1000.pt` | **Recommended**; best-performing checkpoint after replay tests |
+| `apps/stairs_1000.app` | `checkpoints/model_1000.pt` | Same policy under the iteration-1,000 name |
+| `checkpoints/model_1000.pt` | - | 2,200-iteration run, iteration 1,000 (best) |
+| `checkpoints/model_2199.pt` | - | Trainer's final saved file, kept for provenance |
 | `checkpoints/model_2200.pt` | - | Byte-identical alias of `model_2199.pt` |
+| `pedestal/checkpoints/model_*.pt` | - | 50 attractor-run pedestal checkpoints; see [`pedestal/checkpoints/README.md`](pedestal/checkpoints/README.md) |
 
 Checkpoint numbering is zero-indexed. The run is described as **2,200 iterations**, so
 the last file written by the trainer is `model_2199.pt`. For convenience, the requested
