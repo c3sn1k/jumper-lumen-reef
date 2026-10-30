@@ -105,7 +105,7 @@ lumen-reef-challenge/
 |   `-- README.md               replay setup and checkpoint pairing
 |-- pedestal/
 |   |-- README.md               pedestal task, environment contract and limits
-|   |-- checkpoints/            50 attractor-run checkpoints + SHA-256 manifest
+|   |-- checkpoints/            4 attractor-run checkpoints (useful subset) + SHA-256 manifest
 |   `-- training/               pedestal overlay and COLAB_PEDESTAL.md
 |-- training/
 |   |-- tasks/jumper/stairs/    the registered jumper.stairs task
@@ -171,7 +171,8 @@ body up. The method was the **attractor payload**: a stairs-actor warm start, a 
 phase machine, and a claw attractor plus a bi-manual pull-up cascade over a
 0.08-0.24 m height curriculum.
 
-- **Checkpoints**: all 50 files of the 10,000-iteration attractor run are in
+- **Checkpoints**: the useful subset (`model_3000`, `model_5000`, `model_9800`,
+  `model_9999`) of the 10,000-iteration attractor run is in
   [`pedestal/checkpoints/`](pedestal/checkpoints/), with a SHA-256 manifest and the
   curriculum level at save.
 - **Environment**: the checkpoints require the pedestal task, **22 degrees of freedom**
@@ -286,7 +287,7 @@ workflow's content library, or load the map directly in the official simulator.
 | `checkpoints/model_1000.pt` | - | 2,200-iteration run, iteration 1,000 (best) |
 | `checkpoints/model_2199.pt` | - | Trainer's final saved file, kept for provenance |
 | `checkpoints/model_2200.pt` | - | Byte-identical alias of `model_2199.pt` |
-| `pedestal/checkpoints/model_*.pt` | - | 50 attractor-run pedestal checkpoints; see [`pedestal/checkpoints/README.md`](pedestal/checkpoints/README.md) |
+| `pedestal/checkpoints/model_*.pt` | - | 4 attractor-run pedestal checkpoints (useful subset); see [`pedestal/checkpoints/README.md`](pedestal/checkpoints/README.md) |
 
 Checkpoint numbering is zero-indexed. The run is described as **2,200 iterations**, so
 the last file written by the trainer is `model_2199.pt`. For convenience, the requested

@@ -29,8 +29,9 @@ The best result came from the **attractor payload**:
    jackpot pays the mounted pose after a 10-step dwell. The exact terms are in
    [`training/tasks/jumper/pedestal/mdp/rewards.py`](training/tasks/jumper/pedestal/mdp/rewards.py).
 
-The run is **10,000 PPO iterations** with 256 environments. The 50 checkpoints in
-[`checkpoints/`](checkpoints/) are every file the trainer saved.
+The run is **10,000 PPO iterations** with 256 environments. It saved 50 files;
+[`checkpoints/`](checkpoints/) publishes the useful subset (`model_3000`,
+`model_5000`, `model_9800`, `model_9999`).
 
 ## Environment contract
 
@@ -65,7 +66,8 @@ through `scene.spec_fn` for the native compile. The file that does this is
 
 ## Checkpoints
 
-[`checkpoints/`](checkpoints/) holds all 50 files, iteration 150 to 9,999, with a
+[`checkpoints/`](checkpoints/) holds the useful subset (`model_3000`,
+`model_5000`, `model_9800`, `model_9999`) with a
 table (iteration, curriculum level at save, bytes, SHA-256) and a
 [`SHA256SUMS`](checkpoints/SHA256SUMS) manifest. They are raw `.pt` files, not
 `.app` bundles.
@@ -79,6 +81,7 @@ step:
 - `model_5000.pt` at **0.10 m** is the next best.
 - `model_9800.pt` at **0.18 m** and 0.22 m hooks the rim and leans, without a
   clean mount.
+- `model_9999.pt` is the final file of the run, from the same late phase as 9800.
 - At 0.24 m the mechanism cannot make the last step (the motors saturate and
   there is not enough leverage). The run spent its long tail there, which is why
   the later checkpoints are not better on the low rungs.
